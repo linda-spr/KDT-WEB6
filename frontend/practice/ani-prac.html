@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공움직이기</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(45deg, yellow, orange, orangered);
+      box-shadow: -5px 10px 10px inset #00000071;
+      border-radius: 50%;
+      animation-name: ball;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    @keyframes ball {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      25% {
+        transform: translate(calc(100vw - 100px), 0);
+      }
+
+      50% {
+        transform: translate(calc(100vw - 100px), calc(100vh - 100px));
+      }
+
+      75% {
+        transform: translate(0, calc(100vh - 100px));
+      }
+
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+
+</html>

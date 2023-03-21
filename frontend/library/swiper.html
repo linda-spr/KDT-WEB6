@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>swiper</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <style>
+    .swiper {
+      width: 100%;
+      background-color: burlywood;
+      height: 200px;
+      font-size: 50px;
+    }
+
+    .swiper-wrapper {
+      height: 100%;
+    }
+
+    .swiper-slide {
+      width: 200px;
+      height: 100%;
+      border: 1px solid slateblue;
+      text-align: center;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: black;
+    }
+
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background-color: cyan;
+      border: 1px solid black;
+      opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 40px;
+      transition: width 0.5s;
+      border-radius: 5px;
+      background-color: pink;
+      border: 1px solid transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">slide 1</div>
+      <div class="swiper-slide">slide 2</div>
+      <div class="swiper-slide">slide 3</div>
+      <div class="swiper-slide">slide 4</div>
+      <div class="swiper-slide">slide 5</div>
+      <div class="swiper-slide">slide 6</div>
+      <div class="swiper-slide">slide 7</div>
+      <div class="swiper-slide">slide 8</div>
+      <div class="swiper-slide">slide 9</div>
+    </div>
+
+    <!-- pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- 화살표 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- 스크롤바 -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      slidesPerView: 3,
+      autoplay: true,
+      mousewheel: true,
+      speed: 1000,
+
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      }
+    })
+  </script>
+</body>
+
+</html>

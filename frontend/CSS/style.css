@@ -1,0 +1,13 @@
+@import './import.css';
+
+li {
+  background-color: pink;
+}
+
+p {
+  background-color: blue;
+}
+
+div {
+  background-color: black;
+}

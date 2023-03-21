@@ -1,0 +1,46 @@
+body {
+  height: 1000px;
+}
+
+.box {
+  display: inline-block;
+  width: 300px;
+  height: 500px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.background {
+  /* background: color image reapeat position/size ...; */
+  background-color: aqua;
+  background: palegreen;
+  background: linear-gradient(black, tomato);
+}
+
+.background-image {
+  background-image: url('https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a');
+
+  /* 1. background-repeat */
+  background-repeat: repeat; /* default */
+  background-repeat: repeat-x;
+  background-repeat: repeat-y;
+  background-repeat: no-repeat;
+
+  /* 2.background-position */
+  background-position: left top;
+  /* background-position: center top; */
+  /* background-position: 10px 10px; */
+  /* 숫자값을 하나만 입력하면 x축에 대해서만 적용 */
+  /* background-position: 100px; */
+
+  /* 3. background-size */
+  background-size: auto; /* default */
+  background-size: 100px;
+  background-size: 100px 50px;
+  background-size: cover;
+  background-size: contain;
+
+  /* 4. background-attachment */
+  background-attachment: scroll;
+  background-attachment: fixed;
+}

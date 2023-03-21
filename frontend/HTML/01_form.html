@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form태그의 종류에 대해서 알아보아요~!😘</title>
+</head>
+
+<body>
+  <form>
+    <label for="textInput">id</label>
+    <input type="text" id="textInput" />
+    <br />
+    <label for="pwd">비밀번호</label>
+    <input type="password" id="pwd" />
+
+    <!-- 
+        email type
+        - 실제 제출을 할 때 이메일 형식이 아니면
+        제출이 안됨.
+    -->
+    <input type="email" placeholder="example@loves.com">
+    <br />
+    <textarea cols="20" rows="5" placeholder="하고 싶은 말을 써주세요."></textarea>
+
+    <input type="color" />
+    <input type="range" />
+    <input type="file" />
+    <input type="number" />
+    <input type="date" />
+    <input type="datetime-local" />
+    <hr />
+    <h5>다음 중 input type이 아닌 것은?(모두 고르세요.)</h5>
+    <input type="checkbox" name="input" /> text
+    <input type="checkbox" name="input" /> bread
+    <input type="checkbox" name="input" checked /> date
+    <input type="checkbox" name="input" disabled /> click
+    <input type="checkbox" name="input" /> img
+
+    <h5>다음 중 img 태그의 속성인 것은?</h5>
+    <input type="radio" name="img" id="title" disabled> <label for="title">title</label>
+    <input type="radio" name="img" id="alt"> <label for="alt">alt</label>
+    <input type="radio" name="img" id="mouse"> <label for="mouse">mouse</label>
+    <input type="radio" name="img" id="value"> <label for="value">value</label>
+    <input type="radio" name="img" id="href"> <label for="href">href</label>
+    <br />
+
+    <!-- 
+    label - 웹 접근성, 사용자 편의성
+     * 웹 접근성?
+        장애인이나 고령자가 차별없이 동등하게 접근할 수 있도록 보장하는 것
+        시각 장애인이 웹을 탐색할 때 사용하는 보조 도구인 스크린 리더기가
+        label 태그로 연결된 요소를 식별할 수 있습니다.
+         >> label 태그 사용 권장!
+    - for 속성을 이용해서 input의 id속성과 함께 동작
+    - checkbox, radio, button 등의 요소가 아닌 
+      텍스트를 눌러도 선택할 수 있기 때문에 사용자의 편의성을 높일 수 있습니다.
+    -->
+    <input type="button" value="버튼" />
+    <input type="submit" value="제출" />
+    <button><span style="color :red;">버</span>튼</button>
+
+    <hr />
+    <select name="flower">
+      <optgroup label="redflower">
+        <option>장미</option>
+        <option>동백꽃</option>
+        <option>카네이션</option>
+      </optgroup>
+      <optgroup label="whiteflower">
+        <option>벚꽃</option>
+        <option>목련</option>
+        <option>매화</option>
+      </optgroup>
+    </select>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+  </form>
+
+
+</body>
+
+</html>

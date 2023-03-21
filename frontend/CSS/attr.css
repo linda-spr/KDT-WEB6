@@ -1,0 +1,158 @@
+.d-block {
+  display: block;
+  background-color: blueviolet;
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  padding: 30px;
+  margin: 20px;
+}
+
+.d-inline {
+  display: inline;
+  background-color: red;
+  border: 1px solid blue;
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  /* padding: 30px; */
+}
+
+.d-inline-block {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  /* margin: 20px; */
+  /* padding: 30px; */
+  padding: 10px 20px 30px 40px;
+  margin: 10px;
+}
+
+.parent {
+  width: 500px;
+  height: 200px;
+  background-color: red;
+}
+
+.parent .min {
+  min-width: 400px;
+  background-color: orange;
+  height: 100px;
+}
+.parent .max {
+  max-width: 400px;
+  background-color: aqua;
+  height: 100px;
+}
+
+.box {
+  background-color: rgb(53, 139, 215);
+  border: 1px solid black;
+}
+
+.box-px {
+  width: 50px;
+  height: calc(50vw - 10px);
+}
+
+.box-view {
+  width: 10vw;
+  height: 10vw;
+}
+
+.box-per {
+  width: 10%;
+  height: 10%;
+}
+
+.rem {
+  font-size: 2rem;
+}
+
+.em {
+  font-size: 2em;
+}
+
+.square {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border: 1px solid gray;
+}
+
+.border {
+  border: 3px solid black;
+  /* default : medium none black */
+  /* border-style: dashed; */
+  border-color: blue;
+  border-color: red orange yellow green;
+  border-left: 5px dotted slateblue;
+  border-top-style: dashed;
+}
+
+.rounded {
+  background-color: thistle;
+
+  border-radius: 10px 40px;
+  border-radius: 10px 20px 40px;
+  border-radius: 5px 20px 35px 50px;
+  border-radius: 10px;
+  border-radius: 10%;
+  border-radius: 50%;
+  border-radius: 50px;
+}
+
+.box-sizing {
+  padding: 20px;
+  border: 15px solid red;
+  background-color: orange;
+}
+
+.content-box {
+  box-sizing: content-box;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.d-none {
+  /* display: none; */
+  background-color: red;
+}
+.invisible {
+  /* visibility: hidden; */
+  background-color: orangered;
+}
+
+.opacity-0 {
+  /* opacity: 0; */
+  background-color: tomato;
+  opacity: 0.1;
+}
+
+.square img[alt='푸'] {
+  width: 200px;
+}
+
+.overflow-hidden {
+  /* overflow: hidden; */
+  overflow-x: hidden;
+}
+
+.overflow-auto {
+  /* 넘치는게 있을 때만 스크롤 생성 */
+  overflow: auto;
+}
+
+.overflow-scroll {
+  /* 콘텐츠가 넘치지 않아도 스크롤 생성 */
+  overflow: scroll;
+}
+
+.overflow-visible {
+  overflow: visible;
+  overflow: hidden auto;
+}

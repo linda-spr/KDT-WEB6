@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery method</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+ <script defer src="./index2.js"></script>
+ <style>
+    body {
+        padding-bottom: 300px;
+    }
+
+    /* 클래스 조작 */
+    .color-blue {
+        color: blue;
+    }
+
+    .fs-50 {
+        font-size: 50px;
+    }
+
+    .bg-pink {
+        background-color: pink;
+    }
+ </style>
+</head>
+<body>
+    <h1>jQuery method</h1>
+    <h2>val()</h2>
+    <input type="text">
+    <button type="button" onclick="getValue();">값 가져오기</button>
+    <button type="button" onclick="setValue();">값 설정하기</button>
+    
+    <hr>
+    <h2>css()</h2>
+    <span>안뇽</span>
+    <br>
+    <button type="button" onclick="changeCssJS();">js로 바꾸기</button>
+    <button type="button" onclick="changeCssJquery();">jquery로 바꾸기</button>
+    <hr>
+
+    <h2>attr()</h2>
+    <a href="https://www.google.com">google</a>
+    <br>
+    <button type="button" onclick="changeAttrJS();">js로 바꾸기</button>
+    <button type="button" onclick = "changeAttrJquery();">jquery로 바꾸기</button>
+
+    <hr>
+
+    <h2>text()</h2>
+    <p class="p-text">안녕하세요!</p>
+    <button type="button" onclick="changeTextJS();">js로 바꾸기</button>
+    <button type="button" onclick="changeTextJquery();">jquery로 바꾸기</button>
+    <hr>
+    
+    <h2>html()</h2>
+    <p class="p-html">안녕하세요!</p>
+    <button type="button" onclick="changeHtmlJS();">js로 바꾸기</button>
+    <button type="button" onclick="changeHtmlJquery();">jquery로 바꾸기</button>
+
+    <hr>
+    <h2>요소 추가하기</h2>
+    <ul class="colors">
+        <li class="orange">orange</li>
+        <li class="green">green</li>
+        <li class="navy">navy</li>
+    </ul>
+
+    <h3>append() : 선택된 요소의 맨 마지막 자식으로 추가</h3>
+    <button type="button" onclick="appendJS();">js로 바꾸기</button>
+    <button type="button" onclick="appendJquery();">jquery로 바꾸기</button>
+
+    <h3>prepend() : 선택된 요소의 맨 처음 자식으로 추가</h3>
+    <button type="button" onclick="prependJS();">js로 바꾸기</button>
+    <button type="button" onclick="prependJquery();">jquery로 바꾸기</button>
+
+    <h3>after() : 선택된 요소의 이전 형제로 추가</h3>
+    <button type="button" onclick="afterJS();">js로 바꾸기</button>
+    <button type="button" onclick="afterJquery();">jquery로 바꾸기</button>
+
+    <h3>before() : 선택된 요소의 다음 형제로 추가</h3>
+    <button type="button" onclick="beforeJS();">js로 바꾸기</button>
+    <button type="button" onclick="beforeJquery();">jquery로 바꾸기</button>
+
+    <hr>
+    <h2>요소 삭제하기</h2>
+    <ul class="nums">
+        <li>1</li>
+        <li id="li2">2</li>
+        <li>3</li>
+    </ul>
+
+    <h3>remove()</h3>
+    <button type="button" onclick="removeJS();">js로 바꾸기</button>
+    <button type="button" onclick="removeJquery();">jquery로 바꾸기</button>
+    
+    <h3>empty()</h3>
+    <button type="button" onclick="emptyJS();">js로 바꾸기</button>
+    <button type="button" onclick="emptyJquery();">jquery로 바꾸기</button>
+
+    <h2>요소 탐색</h2>
+    <div class="ancestor">
+        <div class="parent">
+            <div class="child1">자식1</div>
+            <div class="child2">자식2</div>
+            <div class="child3">자식3</div>
+        </div>
+    </div>
+
+    <button type="button" onclick="findParent()">부모찾기</button>
+    <button type="button" onclick="findParents()">조상 모두 찾기</button>
+    <button type="button" onclick="findNext()">다음 형제 찾기</button>
+    <button type="button" onclick="findPrev()">이전 형제 찾기</button>
+    <button type="button" onclick="findChildren()">모든 자식 찾기</button>
+
+    <hr>
+    <h2>클래스 조작하기</h2>
+    <p id="hi" class="color-blue">안녕하세요!</p>
+    <button type="button" onclick="addClass();">클래스 추가</button>
+    <button type="button" onclick="removeClass();">클래스 삭제</button>
+    <button type="button" onclick="hasClass();">클래스 유무 확인</button>
+    <button type="button" onclick="toggleClass();">클래스 토글</button>
+</body>
+</html>
