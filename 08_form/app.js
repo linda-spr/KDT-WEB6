@@ -4,6 +4,8 @@ const PORT = 8000;
 
 app.set('view engine', 'ejs'); // view engine 등록
 app.use('/views', express.static(__dirname + '/views')); // ejs를 담을 views 폴더 경로 설정
+app.use(express.urlencoded({ extended: true })); // post 요청으로 들어오는 모든 형식의 데이터를 파싱(분석)
+app.use(express.json()); // json 형태로 데이터를 주고 받음
 
 // 라우팅(routing): 경로 설정
 // 브라우저에서 어떤 url로 접속했을 때 어떤 페이지를 보여줄 것인가!!!
@@ -11,7 +13,19 @@ app.use('/views', express.static(__dirname + '/views')); // ejs를 담을 views 
 // localhost:PORT/ 접속했을 때, index.ejs 를 보여주겠다
 app.get('/', function (req, res) {
   // views/index.ejs 파일을 찾아서 응답
-  res.render('index');
+  const myTitle = '폼 실습을 합시다~~~';
+  res.render('index', { title: myTitle });
+});
+
+app.get('/getForm', function (req, res) {
+  // console.log(req); // { xx: {},  yy: {}, ... query: { id: 'sean', pw: '1234' }}
+  console.log(req.query); // { id: 'sean', pw: '1234' }
+  res.send('get 요청 성공!!!');
+});
+
+app.post('/postForm', function (req, res) {
+  console.log(req.body); // { id: 'apple', pw: '1234' }
+  res.send('post 요청 성공!!!');
 });
 
 app.listen(PORT, function () {

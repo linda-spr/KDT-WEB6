@@ -9,7 +9,33 @@
 </head>
 
 <body>
-  <h1>폼 실습을 해보자!</h1>
+  <h1><%= title %></h1>
+
+  <h2>GET 요청</h2>
+  <form action="/getForm" name="login1" method="get" class="get-form">
+    <input type="text" name="id" placeholder="ID">
+    <input type="password" name="pw" placeholder="PW">
+    <button type="submit">제출 </button>
+  </form>
+
+  <h2>POST 요청</h2>
+  <form action="/postForm" name="login2" method="post" class="post-form">
+    <input type="text" name="id" placeholder="ID">
+    <input type="password" name="pw" placeholder="PW">
+    <button type="submit">제출 </button>
+  </form>
+
+  <script>
+    console.log('hihihi');
+
+    // form 태그의 name 속성 값으로 폼 선택하기
+    console.log(document.forms['login1']);
+    console.log(document.forms['login2']);
+
+    // 클래스 지정해서 form 선택도 가능함~
+    console.log(document.querySelector('.get-form'))
+    console.log(document.querySelector('.post-form'))
+  </script>
 </body>
 
 </html>

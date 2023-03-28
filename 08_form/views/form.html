@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form 요소 복습</title>
+</head>
+
+<body>
+  <h1>Form</h1>
+
+  <hr />
+  <h2>form 요소</h2>
+  <form action="">
+
+    <!-- input: 입력 창 (한 줄)-->
+    <input type="text" value="input value" /><br />
+    <input type="password" /><br />
+    <input type="number" /><br />
+    <input type="range" /><br />
+    <input type="color" /><br />
+    <input type="email" /><br />
+    <input type="file" /><br />
+    <input type="date" /><br />
+    <!-- checkbox: 중복 선택 가능 -->
+    <input type="checkbox" value="apple" />사과
+    <input type="checkbox" value="orange" checked />오렌지
+    <input type="checkbox" value="banana" />바나나
+    <br />
+    <!-- radio: 같은 name을 가진 라디오 버튼 중 하나만 선택 가능 -->
+    <input type="radio" name="fruits" value="apple" />사과
+    <input type="radio" name="fruits" value="orange" />오렌지
+    <input type="radio" name="fruits" value="banana" checked />바나나
+    <br />
+
+    <!-- textarea: 입력 창 (여러 줄) -->
+    <textarea name="" id="" cols="30" rows="10"></textarea><br />
+
+    <!-- select: 드롭다운 리스트를 갖는 콤보 박스 -->
+    <select name="gender" id="">
+      <option value="1">one</option>
+      <option value="2">two</option>
+      <option value="3" selected>three</option>
+    </select><br />
+
+    <!-- 
+        button type
+        - button: 클릭 가능한 버튼 
+          -> 폼 태그 외부에 존재할 때 기본 값 -> 단순 버튼을 의미
+        - submit: 폼 제출 버튼
+          -> 폼 태그 안에 있을 때 기본값 -> 폼 제출을 의미
+      -->
+    <!-- (추가) 폼 요소들은 폼 태그에 감싸져 있는 것이 바람직하나, 버튼은 폼 밖에 있어도 ㄱㅊ!!-->
+    <button type="button">button</button>
+    <button type="submit">submit</button>
+    <button type="reset">reset</button>
+  </form>
+
+  <hr />
+  <h2>label 태그</h2>
+  <p>
+    캡션으로 웹 접근성에 도움을 주며, 폼을 더 편리하게 사용하게 하는 중요한
+    요소!
+  </p>
+
+  <form action="">
+    <!-- label의 for 값 = input 태그의 id 값 -->
+    <label for="username">username</label>
+    <input type="text" id="username" />
+    <label for="password">password</label>
+    <input type="password" id="password" />
+    <br />
+
+    <!-- 체크박스/라디오 버튼에 label 태그 사용 -->
+    <!-- 캡션 텍스트나 이미지를 선택해도 폼 요소를 선택한 것처럼 처리됨 -->
+    <input type="radio" name="gender" id="female" />
+    <label for="female">여성</label>
+    <input type="radio" name="gender" id="male" />
+    <label for="male">남성</label>
+    <br />
+
+    <input type="checkbox" id="gimbap" />
+    <label for="gimbap">김밥</label>
+    <input type="checkbox" id="pasta" />
+    <label for="pasta">파스타</label>
+    <br />
+
+    <!-- placeholder: 입력할 정보에 대한 힌트 -->
+    <label for="email">이메일 주소</label>
+    <input type="email" placeholder="id@host" id="email" />
+  </form>
+
+  <hr />
+  <h2>fieldset, legend 태그</h2>
+  <p>
+    폼 태그 안에 있는 요소들을 그룹화 할 때 fieldset 태그 사용, legend
+    fieldset 태그 안에서 목적에 맞는 이름 부여
+  </p>
+  <fieldset>
+    <legend>개인 정보</legend>
+    <label for="name">이름: </label><input type="text" id="name" /><br />
+    <label for="age">나이: </label><input type="text" id="age" />
+  </fieldset>
+
+  <hr />
+  <h2>name 속성</h2>
+  <p>데이터가 서버로 전송될 때, 폼 요소 값을 파악하기 위함</p>
+  <form action="">
+    <label for="name">이름</label>
+    <input type="text" id="name" name="name" />
+    <br />
+
+    <input type="checkbox" name="agree" id="agree" value="true" />
+    <label for="agree">동의합니다.</label>
+    <br />
+
+    <input type="radio" name="userType" id="teacher" value="teacher" />
+    <label for="teacher">선생님</label>
+    <input type="radio" name="userType" id="student" value="student" />
+    <label for="student">학생</label>
+    <br />
+
+    <button type="submit">제출</button>
+  </form>
+</body>
+
+</html>
