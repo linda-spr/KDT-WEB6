@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>get 방식 form</title>
+</head>
+
+<body>
+  <h1>실습1. get으로 정보받기</h1>
+  <form action="/result1" method="get">
+    <label for="username">이름</label>
+    <input type="text" name="username" id="username">
+    <br>
+
+    <fieldset>
+      <legend>성별</legend>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">남자</label>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">여자</label>
+    </fieldset>
+    <br>
+
+    <fieldset>
+      <legend>생년월일</legend>
+      <!-- <input type="date"> -->
+
+      <select name="birthYear" id="year">
+        <% for (let i = 0; i < 50; i++) { %>
+        <option value="<%= 2010 - i %>"><%= 2010 - i %></option>
+        <% } %>
+      </select>
+      <label for="year">년</label>
+      <select name="birthMonth" id="month">
+        <% for (let i = 1; i < 13; i++) { %>
+        <option value="<%= i %>"><%= i %></option>
+        <% } %>
+      </select>
+      <label for="month">월</label>
+      <select name="birthDay" id="day">
+        <% for (let i = 1; i < 31; i++) { %>
+        <option value="<%= i %>"><%= i %></option>
+        <% } %>
+      </select>
+      <label for="day">일</label>
+    </fieldset>
+    <br>
+
+    <fieldset>
+      <legend>관심사</legend>
+      <input type="checkbox" id="travle" name="hobby" value="travle">
+      <label for="travle">여행</label>
+      <input type="checkbox" id="fashion" name="hobby" value="fashion">
+      <label for="fashion">패션</label>
+      <input type="checkbox" id="food" name="hobby" value="food">
+      <label for="food">음식</label>
+    </fieldset>
+    <br>
+
+    <button type="submit">회원가입</button>
+  </form>
+
+  <a href="/">홈으로 이동</a>
+</body>
+
+</html>

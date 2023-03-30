@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>폼 전송 결과 페이지</title>
+</head>
+
+<body>
+  <h1><%= title %></h1>
+  <ul>
+    <!-- 
+      userInfo
+      {
+        username: 'a',
+        gender: 'female',
+        birthYear: '2010',
+        birthMonth: '1',
+        birthDay: '1',
+        hobby: 'travle'
+      }
+    -->
+    <li>이름: <%= userInfo.username %></li>
+    <li>성별: <%= userInfo.gender %></li>
+    <li>생년월일: <%= userInfo.birthYear %>
+      - <%= userInfo.birthMonth %>
+      - <%= userInfo.birthDay %></li>
+    <li>관심사: <%= userInfo.hobby %></li>
+    <% if (userInfo.myColor) { %>
+    <li>좋아하는 색상: <%= userInfo.myColor %></li>
+    <% } %>
+
+    <% if (userInfo.myNumber) { %>
+    <li>좋아하는 숫자: <%= userInfo.myNumber %></li>
+    <% } %>
+  </ul>
+</body>
+
+</html>
