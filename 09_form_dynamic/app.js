@@ -36,6 +36,18 @@ app.post('/axios', function (req, res) {
   res.send(req.body);
 });
 
+// 3-1. /fetch get 요청
+app.get('/fetch', function (req, res) {
+  console.log(req.query);
+  res.send(req.query);
+});
+
+// 3-2. /fetch post 요청
+app.post('/fetch', function (req, res) {
+  console.log(req.body);
+  res.send(req.body);
+});
+
 app.listen(PORT, function () {
   console.log(`http://localhost:${PORT}`);
 });

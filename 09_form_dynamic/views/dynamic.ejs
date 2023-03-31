@@ -42,6 +42,8 @@
     <button type="button" onclick="ajaxPost();">ajax post 버튼</button>
     <button type="button" onclick="axiosGet();">axios get 버튼</button>
     <button type="button" onclick="axiosPost();">axios post 버튼</button>
+    <button type="button" onclick="fetchGet();">fetch get 버튼</button>
+    <button type="button" onclick="fetchPost();">fetch post 버튼</button>
   </form>
   <div class="result"></div>
 
@@ -183,6 +185,55 @@
       }).catch((error) => {
         console.log('Error!', error.message)
         resultBox.textContent = '알 수 없는 에러 발생!!'
+      })
+    }
+
+    function fetchGet() {
+      console.log('click fetchGet btn!!')
+
+      const form = document.forms['register'];
+      const urlQuery = `?name=${form.name.value}&gender=${form.gender.value}`;
+
+      // fetch(url, options)
+      fetch(`/fetch${urlQuery}`, {
+        method: 'GET',
+      }).then(function(response) {
+        console.log(response)
+        return response.json() // json 형식으로 도착하는 응답 -> js object로 파싱
+      }).then(function(data) {
+        console.log('data >>>> ', data) // {name: 'xx', gender: 'yy'}
+        resultBox.textContent = `GET /fetch 요청 완료!!
+          ${data.name}님은 ${data.gender}이시죠?!`
+        resultBox.style.color = 'limegreen'
+      })
+    }
+
+    function fetchPost() {
+      console.log('click fetchPost btn!!')
+
+      const form = document.forms['register'];
+      const formInfo = {
+        name: form.name.value,
+        gender: form.gender.value
+      } // javascript object 
+
+      // fetch(url, options)
+      fetch('/fetch', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // => POST 전송시에는 headers 옵션을 통해서 JSON 포맷을 사용함을 알려줘야 함.
+        },
+        body: JSON.stringify(formInfo) // 폼 요소에 입력된 값 정보 
+        // => JSON.stringify() : js object -> json
+      }).then(function(response) {
+        console.log(response)
+        return response.json() // json 형식으로 도착하는 응답 -> js object로 파싱
+      }).then(function(data) {
+        console.log(data) // { name: 'aa', gender: '여자' }
+        resultBox.textContent = `POST /fetch 요청 완료!! 
+          ${data.name}님은 ${data.gender}이시죠?ㅎㅎ`;
+        resultBox.style.color = 'hotpink';
       })
     }
   </script>
