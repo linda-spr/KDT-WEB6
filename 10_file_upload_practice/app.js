@@ -12,7 +12,18 @@ const uploadDetail = multer({
     },
     filename(req, file, done) {
       const ext = path.extname(file.originalname);
-      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+      // [파일명 + 현재시간.확장자] 형식
+      // done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+
+      // [유저아이디값 + 현재시간.확장자] 형식
+      console.log(req.body);
+      // {
+      //   userid: 'a',
+      //   password: 'aa',
+      //   username: 'a',
+      //   age: '1'
+      // }
+      done(null, req.body.userid + Date.now() + ext);
     },
   }),
   limits: { fileSize: 5 * 1024 * 1024 },
@@ -49,11 +60,10 @@ app.post('/result', uploadDetail.single('profile'), (req, res) => {
   //   username: 'a',
   //   age: '1'
   // }
-  res.render('result', 
-    { 
-      userInfo: req.body, 
-      src: req.file.path 
-    });
+  res.render('result', {
+    userInfo: req.body,
+    src: req.file.path,
+  });
 });
 
 app.listen(PORT, function () {
