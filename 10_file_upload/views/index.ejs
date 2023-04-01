@@ -7,9 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>파일 업로드</title>
 
+  <!-- axios cdn -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   <style>
     body {
       padding-bottom: 500px;
+    }
+
+    .profile {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #0002;
     }
   </style>
 </head>
@@ -42,6 +52,47 @@
     <button type="submit">업로드</button>
   </form>
 
+  <h2>동적 파일 업로드</h2>
+  <p>페이지 변환하지 않고, 현재 페이지에서 파일 업로드 결과 확인하기~!</p>
+  <input type="file" name="dynamic-userfile" id="dynamic-file"><br>
+  <button type="button" onclick="fileUpload();">업로드</button>
+  <!-- 업로드할 파일을 보여줄 이미지 태그 -->
+  <br><img class="img-box" src="">
+
+  <script>
+    function fileUpload() {
+      console.log('click upload btn!')
+      const formData = new FormData();
+      // FormData란?
+      // form 태그의 데이터를 동적으로 제어할 수 있는 기능, 보통 axios/ajax... 함께 사용함
+      // 페이지 전환 없이 "현재 페이지"에서 동적으로 파일 업로드하고 싶을 때 사용함
+      const fileInput = document.getElementById('dynamic-file'); // querySelector('#dynamic-file') 
+      console.dir(fileInput);
+      console.log(fileInput.files);
+      console.log(fileInput.files[0]);
+
+      // formData.append(key, value)
+      // input의 name 값이 'dynamic-userfile'인 요소에 fileInput.files[0] 데이터가 입력되었음
+      formData.append('dynamic-userfile', fileInput.files[0])
+
+      axios({
+        url: '/dynamicFile',
+        method: 'POST',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data', // enctype="multipart/form-data"
+        }
+      }).then((response) => {
+        console.log(response)
+        console.dir(response.data)
+        console.dir(response.data.path) // 이미지가 저장된 경로
+
+        const imgElem = document.querySelector('.img-box');
+        imgElem.src = `/${response.data.path}`;
+        imgElem.classList.add('profile');
+      })
+    }
+  </script>
 
 </body>
 
