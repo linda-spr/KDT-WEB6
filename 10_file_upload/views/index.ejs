@@ -6,17 +6,43 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>파일 업로드</title>
+
+  <style>
+    body {
+      padding-bottom: 500px;
+    }
+  </style>
 </head>
 
 <body>
   <h1>파일 업로드 배워보자!!</h1>
 
   <!-- 주의) multer 는 multipart 가 아닌 폼에서는 동작하지 않음!! -->
+  <h2>하나의 input에 하나의 파일 업로드</h2>
   <form action="/upload" method="POST" enctype="multipart/form-data">
     <input type="file" name="userfile"><br>
     <input type="text" name="title"><br>
     <button type="submit">업로드</button>
   </form>
+
+  <h2>하나의 input에 여러 개의 파일 업로드</h2>
+  <form action="/upload/array" method="POST" enctype="multipart/form-data">
+    <!-- input type이 file일 때 multiple 속성을 추가하면 여러개 업로드 가능! -->
+    <input type="file" name="userfile" multiple><br>
+    <input type="text" name="title"><br>
+    <button type="submit">업로드</button>
+  </form>
+
+  <h2>여러 input에 각각 파일 업로드</h2>
+  <form action="/upload/fields" method="POST" enctype="multipart/form-data">
+    <input type="file" name="userfile1"><br>
+    <input type="text" name="title1"><br>
+    <input type="file" name="userfile2"><br>
+    <input type="text" name="title2"><br>
+    <button type="submit">업로드</button>
+  </form>
+
+
 </body>
 
 </html>
