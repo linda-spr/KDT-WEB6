@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>폼 전송 결과 페이지</title>
+  <link rel="stylesheet" href="/static/index.css">
+</head>
+
+<body>
+
+  <div class="card">
+    <img src="/<%= src %>" alt="이미지">
+    <h3><%= userInfo.userid %>님 환영합니다!</h3>
+    <ul>
+      <li>비밀번호: <%= userInfo.password %></li>
+      <li>이름: <%= userInfo.username %></li>
+      <li>나이: <%= userInfo.age %></li>
+    </ul>
+  </div>
+
+
+</body>
+
+</html>
