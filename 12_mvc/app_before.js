@@ -50,7 +50,12 @@ app.get('/comments', (req, res) => {
   res.render('comments', { commentInfos: comments });
 });
 
-// GET /comment/:id
+// GET /comment
+// /comment?id=6&name=홍길동
+// req.query  { id: 6, name: "홍길동" }  // req.query.id => 6
+// GET /comment/:id/:name
+// /comment/6/홍길동
+// req.params { id : 6, name: "홍길동" } // req.params.id => 6
 app.get('/comment/:id', (req, res) => {
   console.log(req.params); // 라우트 매개변수에 대한 정보 담겨 있음
   console.log(req.params.id); // id 고유 값
@@ -58,13 +63,13 @@ app.get('/comment/:id', (req, res) => {
   const commentId = req.params.id; // 댓글 id: url로 들어온 매개변수
   console.log(comments[commentId - 1]);
 
-  // 존재하지 않는 댓글 id 접근시 404 페이지
-  if (commentId < 1 || commentId > comments.length) {
+  // :id 변수에 숫자가 아닌 값이 온다면 404 페이지
+  if (isNaN(commentId)) {
     return res.render('404');
   }
 
-  // :id 변수에 숫자가 아닌 값이 온다면 404 페이지
-  if (isNaN(commentId)) {
+  // 존재하지 않는 댓글 id 접근시 404 페이지
+  if (commentId < 1 || commentId > comments.length) {
     return res.render('404');
   }
 
