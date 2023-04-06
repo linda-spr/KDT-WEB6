@@ -45,7 +45,7 @@
           </button>
         </td>
         <td>
-          <button type="button">
+          <button type="button" onclick="deleteVisitor(this, '<%= data[i].id %>')">
             삭제
           </button>
         </td>
@@ -57,6 +57,29 @@
 
   <script>
     const tbody = document.querySelector('tbody');
+
+    function deleteVisitor(obj, id) {
+      console.log('obj', obj);
+      console.log('id', id);
+
+
+      if (!confirm('정말 삭제하시겠습니까?')) { // !false = true (취소 버튼을 누르면)
+        return;
+      }
+
+      // confirm에서 [확인] 버튼 클릭시 실행할 코드
+      axios({
+        method: 'DELETE',
+        url: '/visitor/delete',
+        data: {
+          id: id // 매개변수로 받고 있는 id 
+        }
+      }).then((res) => {
+        console.log(res.data);
+        obj.parentElement.parentElement.remove();
+        // obj.closest(`#tr_${id}`).remove(); 
+      });
+    }
 
     // 폼 [등록] 버튼 클릭시
     // - 테이블 데이터 추가
@@ -79,7 +102,7 @@
             <td>${res.data.name}</td>
             <td>${res.data.comment}</td>
             <td><button type="button">수정</button></td>
-            <td><button type="button">삭제</button></td>
+            <td><button type="button" onclick="deleteVisitor(this, ${res.data.id})">삭제</button></td>
           </tr>`;
 
         // insertAdjacentHTML(): 특정 요소에 html 추가

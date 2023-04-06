@@ -28,3 +28,13 @@ exports.postVisitor = (req, res) => {
     res.send({ id: result, name: req.body.name, comment: req.body.comment });
   });
 };
+
+// (5) DELETE /visitor/delete
+exports.deleteVisitor = (req, res) => {
+  console.log(req.body); // { id: n }
+
+  Visitor.deleteVisitor(req.body.id, (result) => {
+    console.log('Cvisitor.js >> ', result);
+    res.send('삭제 성공!!');
+  });
+};
