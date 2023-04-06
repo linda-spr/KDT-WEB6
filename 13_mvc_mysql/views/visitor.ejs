@@ -40,7 +40,7 @@
         <td><%= data[i].name %></td>
         <td><%= data[i].comment %></td>
         <td>
-          <button type="button">
+          <button type="button" onclick="editVisitor('<%= data[i].id %>')">
             수정
           </button>
         </td>
@@ -57,6 +57,81 @@
 
   <script>
     const tbody = document.querySelector('tbody');
+    const buttonGroup = document.querySelector('#button-group');
+
+    // (1) 테이블 [수정] 버튼 클릭
+    // - form input 값 넣기
+    // - [변경], [취소] 버튼 보여주기
+    function editVisitor(id) {
+      console.log(id);
+
+      axios({
+        method: 'GET',
+        url: '/visitor/get',
+        params: {
+          id: id
+        }
+      }).then((res) => {
+        console.log(res.data);
+
+        // form input 값 넣기
+        const form = document.forms['visitor-form'];
+        form.name.value = res.data.name; // input[name='name']에 value 설정
+        form.comment.value = res.data.comment; // input[name='comment']에 value 설정
+
+        // [변경], [취소] 버튼 보여주기
+        const btns = `
+          <button type='button' onclick='editDo(${id})'>변경</button>
+          <button type='button' onclick='editCancel()'>취소</button>
+        `;
+        buttonGroup.innerHTML = btns;
+      })
+    }
+
+    // (2) [변경] 버튼 클릭시
+    // - 데이터 수정 작업
+    function editDo(id) {
+      const form = document.forms['visitor-form'];
+
+      axios({
+        method: 'PATCH',
+        url: '/visitor/edit',
+        data: {
+          id: id,
+          name: form.name.value,
+          comment: form.comment.value
+        }
+      }).then((res) => {
+        console.log(res.data);
+
+        // 1. 수정 성공 alert 띄우기
+        alert(res.data);
+
+        // 2. 수정 내용 반영
+        const children = document.querySelector(`#tr_${id}`).children;
+        console.log(children);
+        children[1].textContent = form.name.value;
+        children[2].textContent = form.comment.value;
+      })
+
+      // TODO: input 초기화
+    }
+
+    // [취소] 버튼 클릭시 
+    // - input 초기화
+    // - [등록] 버튼 보이기
+    function editCancel() {
+      // 1. 인풋 초기화
+      const form = document.forms['visitor-form'];
+      console.log(form)
+      console.log(form.name)
+      form.name.value = '';
+      form.comment.value = '';
+
+      // 2. 등록 버튼 보이기 
+      const btn = '<button type="button" onClick="createVisitor();">등록</button>';
+      buttonGroup.innerHTML = btn;
+    }
 
     function deleteVisitor(obj, id) {
       console.log('obj', obj);
@@ -101,7 +176,7 @@
             <td>${res.data.id}</td>
             <td>${res.data.name}</td>
             <td>${res.data.comment}</td>
-            <td><button type="button">수정</button></td>
+            <td><button type="button" onclick="editVisitor(${res.data.id})">수정</button></td>
             <td><button type="button" onclick="deleteVisitor(this, ${res.data.id})">삭제</button></td>
           </tr>`;
 
