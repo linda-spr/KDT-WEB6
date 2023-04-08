@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<%- include('include/include', { title: '로그인' })%>
+
+<body>
+  <h1>로그인</h1>
+  <!-- 
+      [로그인] 버튼을 클릭하면 profile.ejs에서 특정 유저 정보를 보여주어야 하기 때문에 
+      userid 정보를 value에 저장(POST /user/signin 요청의 응답을 받은 후 수행)하여
+      폼(input)이 보이지 않도록 hidden 처리함
+    -->
+  <form name="form_info" action="/user/profile" method="POST">
+    <input type="hidden" name="userid" />
+  </form>
+
+  <form name="form_login">
+    <label for="userid">ID</label>
+    <input id="userid" type="text" name="userid" required /><br />
+    <label for="password">Password</label>
+    <input id="password" type="password" name="pw" required /><br />
+    <button type="button" onclick="login();">Login</button>
+  </form>
+
+  <!-- TODO: href 속성값 설정하기 -->
+  <a href="/user/signup">Register</a>
+
+  <script>
+    // TODO: [Login] 버튼 클릭시 서버에 로그인 요청하기
+    // POST /user/signin
+    async function login() {
+      const form = document.forms['form_login'];
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const response = await axios({
+        method: 'POST',
+        url: '/user/signin',
+        data: {
+          userid: form.userid.value,
+          pw: form.pw.value,
+        }
+      });
+      console.log(response);
+
+      if (response.data) {
+        // 로그인 성공 
+        // 1. alert 띄우기
+        alert('로그인 성공!!');
+        // 2. 회원 정보 수정 페이지 이동
+        const form_info = document.forms['form_info']; // 숨겨진 폼 선택
+        console.log(form_info)
+        form_info.userid.value = form.userid.value;
+        form_info.submit(); // 폼 제출 => <button type="submit> 을 누른 것과 동일한 효과
+        // forms['form_info'] 요소의 action, method 속성 값에 의해서
+        // POST /user/profile 요청 수행할 수 있게 됨
+      } else {
+        // 로그인 실패
+        // 1. alert 띄우기
+        alert('로그인 실패!!');
+        // 2. 폼 초기화 (제출 안함)
+        form.reset(); // 로그인 폼 초기화
+      }
+    }
+  </script>
+</body>
+
+</html>

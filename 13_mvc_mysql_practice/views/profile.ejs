@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<%- include('include/include', { title: '회원 정보' })%>
+
+<body>
+  <h1>회원 정보</h1>
+  <!-- TODO: href 속성값 설정하기 -->
+  <a href="/user">HOME</a>
+  <p>ID 수정 불가능, Password, Name 수정 가능</p>
+
+  <!-- TODO: 각 input의 value 값을 로그인 한 사람의 정보로 채우기 -->
+  <form name="form_profile">
+    <label for="userid">ID</label>
+    <input type="hidden" id="id" value="<%= data.id %>" />
+    <!-- readonly: userid는 수정 불가능 (조건임) -->
+    <input id="userid" type="text" name="userid" value="<%= data.userid %>" readonly /><br />
+    <label for="password">Password</label>
+    <input id="password" type="password" name="pw" value="<%= data.pw %>" required /><br />
+    <label for="name">Name</label>
+    <input id="name" type="text" name="name" value="<%= data.name %>" required /><br />
+    <button type="button" onclick="profileEdit();">Edit</button>
+    <button type="button" onclick="profileDelete();">Delete</button>
+  </form>
+
+  <script>
+    const form = document.forms['form_profile'];
+
+    // TODO: [Login] 버튼 클릭시 서버에 회원 정보 수정 요청하기
+    // POST /user/profile/edit
+    async function profileEdit() {
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      await axios({
+        method: 'POST',
+        url: '/user/profile/edit',
+        data: {
+          id: form.id.value,
+          userid: form.userid.value,
+          pw: form.pw.value,
+          name: form.name.value,
+        }
+      })
+
+      alert('회원 정보 수정 완료!!');
+    }
+
+    // TODO: [Login] 버튼 클릭시 서버에 회원 정보 삭제 요청하기
+    // POST /user/profile/delete
+    async function profileDelete() {
+      await axios({
+        method: 'POST',
+        url: '/user/profile/delete',
+        data: {
+          id: form.id.value
+        }
+      });
+
+      alert('회원 탈퇴 성공!!');
+      document.location.href = '/user';
+    }
+  </script>
+</body>
+
+</html>
