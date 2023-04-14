@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- socket.io CDN -->
+  <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/static/index.css">
+
+  <title>✨ My Chat</title>
+</head>
+
+<body>
+  <h1>채팅</h1>
+
+  <!-- [실습3-2] 채팅창 입장 안내 문구 socket.id -> nickname  -->
+  <div class="entry-box">
+    <input type="text" id="nickname" placeholder="Nickname" autofocus>
+    <button type="button" onclick="entry();">입장</button>
+  </div>
+
+  <div class="chat-box d-none">
+    <div id="chat-list" class="chat-list">
+      <!--  임시 대화 데이터 -->
+      <!-- <div class="my-chat">
+        <div>user1: msg1</div>
+      </div>
+      <div class="other-chat">
+        <div>user2: msg2</div>
+      </div> -->
+    </div>
+    <select id="nick-list"></select>에게
+    <input type="text" id="message" />
+    <button type="button" onclick="send();">전송</button>
+  </div>
+
+  <!-- [실습1] 각 버튼을 누를때 마다 서버로 메세지 보내기 -->
+  <!-- <button onclick="sayHello();">hello</button>
+  <button onclick="sayStudy();">study</button>
+  <button onclick="sayBye();">bye</button>
+  <p id="form-server"></p> -->
+
+  <script src="/static/index.js"></script>
+</body>
+
+</html>

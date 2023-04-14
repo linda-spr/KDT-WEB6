@@ -1,0 +1,50 @@
+body {
+  background-color: aliceblue;
+  margin-bottom: 1000px;
+}
+
+/* [실습2] 채팅창 UI 만들기 */
+.chat-list {
+  background-color: skyblue;
+  width: 50%;
+  height: 500px;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.chat-list div {
+  margin-top: 3px;
+}
+
+.chat-list div div {
+  display: inline-block;
+  padding: 3px;
+}
+
+.my-chat {
+  text-align: right;
+}
+
+.my-chat div {
+  background-color: yellow;
+}
+
+.other-chat div {
+  background-color: white;
+}
+
+/* [실습5] DM 기능 */
+.secret-chat div {
+  background-color: pink;
+}
+
+/* [실습3] */
+.notice {
+  text-align: center;
+  color: #005397;
+  font-size: 12px;
+}
+
+.d-none {
+  display: none;
+}
