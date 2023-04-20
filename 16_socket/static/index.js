@@ -107,7 +107,7 @@ socket.on('newMessage', (data) => {
 
   // .my-chat or .other-chat 요소 생성
   let div = document.createElement('div');
-
+  div.classList.add(data.msgId);
   // 가장 안쪽 div 요소 생성
   let divChat = document.createElement('div');
 

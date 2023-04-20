@@ -26,6 +26,8 @@ function updateNickList() {
   // 서버에 접속한 클라이언트들에게 nickObj에 변경이 일어났음을 알리는 이벤트
 }
 
+let msgId = 0; // 메세지 고유 아이디
+
 // io.on(event_name, callback)
 // : socket과 관련된 통신 작업 처리
 io.on('connection', (socket) => {
@@ -105,7 +107,7 @@ io.on('connection', (socket) => {
       socket.emit('newMessage', sendData);
     } else {
       // all 전송 (전체 공지)
-      const sendData = { nick: obj.myNick, msg: obj.msg };
+      const sendData = { nick: obj.myNick, msg: obj.msg, msgId: msgId++};
       io.emit('newMessage', sendData);
     }
   });
