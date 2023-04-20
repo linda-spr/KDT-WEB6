@@ -1,5 +1,7 @@
+import Prob2 from './Prob2';
+
 function App() {
-  return null;
+  return <Prob2 />;
 }
 
 export default App;
