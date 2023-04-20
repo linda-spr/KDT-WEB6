@@ -1,10 +1,10 @@
 import './App.css';
-import SyntheticEvent from './SyntheticEvent';
+import Counter from './Counter';
 
 function App() {
   return (
     <div className="App">
-      <SyntheticEvent />
+      <Counter />
     </div>
   );
 }
