@@ -1,9 +1,9 @@
-import Alphabet from './Alphabet';
+import Prob3 from './Prob3';
 
 function App() {
   return (
     <div className="App">
-      <Alphabet />
+      <Prob3 />
     </div>
   );
 }
