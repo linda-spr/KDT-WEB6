@@ -1,38 +1,66 @@
+:root {
+  --height-header: 80px;
+  --color-primary: rgb(119, 164, 255);
+  --color-secondary: rgb(123, 123, 123);
+  --color-white: rgb(243, 247, 255);
+  --shadow-black: rgba(0, 0, 0, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.PostList header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-shadow: 2px 2px 4px var(--shadow-black);
+  height: var(--height-header);
+  line-height: var(--height-header);
+  font-size: 28px;
+  font-weight: 700;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.PostItem {
+  text-align: left;
+  width: 50%;
+  background-color: var(--color-white);
+  box-shadow: 4px 4px 10px var(--shadow-black);
+  border-radius: 10px;
+  padding: 20px 30px;
+  margin: 40px auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.PostItem .id {
+  font-weight: 500;
+  margin-right: 8px;
+  color: var(--color-primary);
 }
 
-.App-link {
-  color: #61dafb;
+.PostItem .title {
+  color: rgb(123, 123, 123);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.PostItem .body {
+  font-size: 20px;
+}
+
+.PostItem:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
+  transition: transform 0.4s;
+}
+
+.PostItem:hover .id,
+.PostItem:hover .title {
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .PostItem {
+    width: 90vw;
   }
 }
