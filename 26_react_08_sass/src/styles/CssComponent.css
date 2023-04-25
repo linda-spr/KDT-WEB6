@@ -1,0 +1,37 @@
+/* css 주석 */
+.CssComponent {
+  display: flex;
+}
+
+.CssComponent .box {
+  width: 100px;
+  height: 100px;
+}
+
+.CssComponent .red {
+  background-color: red;
+}
+
+.CssComponent .orange {
+  background-color: orange;
+}
+
+.CssComponent .yellow {
+  background-color: yellow;
+}
+
+.CssComponent .green {
+  background-color: green;
+}
+
+.CssComponent .blue {
+  background-color: blue;
+}
+
+.CssComponent .indigo {
+  background-color: indigo;
+}
+
+.CssComponent .purple {
+  background-color: purple;
+}
