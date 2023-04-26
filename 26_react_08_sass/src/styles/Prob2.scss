@@ -1,0 +1,57 @@
+$color-pink: pink;
+$color-yellow: yellow;
+$color-green: green;
+
+@mixin circle($color) {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: $color;
+}
+
+@mixin animation-rotate($ani-name, $size) {
+  @keyframes #{$ani-name} {
+    0% {
+      top: 0;
+      left: 0;
+    }
+    25% {
+      top: 0;
+      left: $size;
+    }
+    50% {
+      top: $size;
+      left: $size;
+    }
+    75% {
+      top: $size;
+      left: 0;
+    }
+    100% {
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.circle {
+  position: relative;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+
+  &.pink {
+    @include circle($color-pink);
+    @include animation-rotate(pinkAnim, 100px);
+    animation-name: pinkAnim;
+  }
+  &.yellow {
+    @include circle($color-yellow);
+    @include animation-rotate(yellowAnim, 200px);
+    animation-name: yellowAnim;
+  }
+  &.green {
+    @include circle($color-green);
+    @include animation-rotate(greenAnim, 300px);
+    animation-name: greenAnim;
+  }
+}

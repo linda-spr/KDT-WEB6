@@ -1,11 +1,9 @@
-import CssComponent from './CssComponent';
-import SassComponent from './SassComponent';
+import Prob4 from './Prob4';
 
 function App() {
   return (
     <div className="App">
-      <CssComponent />
-      <SassComponent />
+      <Prob4 />
     </div>
   );
 }
