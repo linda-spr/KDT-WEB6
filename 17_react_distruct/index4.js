@@ -114,3 +114,12 @@ console.log(sum2); // 15
 // acc : 10
 // currentValue : 5
 // 15
+
+// ==================================================
+// join()
+const msg = ['sean', '님', '안녕하세요'];
+console.log(msg.join(' ')); // sean 님 안녕하세요
+console.log(msg.join('')); // sean님안녕하세요
+
+const phone = ['010', '1234', '4567'];
+console.log(phone.join('-')); // 010-1234-4567
