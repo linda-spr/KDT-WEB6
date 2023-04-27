@@ -11,6 +11,17 @@ const Header = () => {
         <Link to="/products" className="menu-item">
           Product
         </Link>
+
+        {/* 실습 */}
+        <Link to="/student/sean" className="menu-item">
+          학생
+        </Link>
+        <Link to="/student/codingon" className="menu-item">
+          코딩온
+        </Link>
+        <Link to="/student/new?name=jisu" className="menu-item">
+          searchParams
+        </Link>
       </div>
     </header>
   );

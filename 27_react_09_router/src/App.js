@@ -4,6 +4,7 @@ import MainPage from './pages/MainPage';
 import ProductPage from './pages/ProductPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import NotFound from './pages/NotFound';
+import ProbStudent from './pages/ProbStudent';
 import { useState, useEffect } from 'react';
 import './styles/Common.scss';
 import axios from 'axios';
@@ -36,6 +37,10 @@ function App() {
             path="/products/:productId"
             element={<ProductDetailPage products={products} />}
           />
+
+          {/* 실습 */}
+          <Route path="/student/:name" element={<ProbStudent />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
