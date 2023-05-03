@@ -5,12 +5,16 @@ import {
 } from './containers/BoxesContainers';
 import './styles/Box.css';
 
+import Bank from './components/Bank';
+
 function App() {
   return (
     <div className="App">
       Redux Test
       <h1>number</h1>
       <Box1Container />
+      <hr />
+      <Bank />
     </div>
   );
 }
